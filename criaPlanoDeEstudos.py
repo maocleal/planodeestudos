@@ -1,4 +1,5 @@
 import pandas as pd
+import lendoXML
 
 turno = []
 semana = ["Segunda", "Terça", "Quarta", "Quinta", "Sexta"]
@@ -11,15 +12,6 @@ atendimentos = pd.read_excel("Pasta1 - Cópia (3).xlsx")
 
 tabela = pd.read_excel("Pasta1 - Cópia.xlsx")
 
-for dia in semana:
-    for i in range(len(tabela[dia])):
-        if str(tabela[dia][i]) != "nan":
-            planodeestudos[dia][i] = "IFBA - Aula"
-            disciplina, professor = tabela[dia][i].split("Aula")
-            if not disciplina in disciplinas:
-                disciplinas.append(disciplina)
-                professores.append(professor)
-            
 print("Escolha as disciplinas por ordem de dificuldade:")
 for c in range(len(disciplinas)):
     print(f"{c + 1} {disciplinas[c]}")
